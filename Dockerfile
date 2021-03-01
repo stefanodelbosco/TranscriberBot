@@ -36,4 +36,4 @@ RUN chown -R transcriber /transcriber
 
 USER transcriber
 
-CMD [ "python", "src/main.py" ]
+CMD [ "python", "/transcriber/src/main.py" ]
