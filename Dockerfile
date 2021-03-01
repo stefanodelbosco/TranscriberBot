@@ -27,11 +27,15 @@ RUN pip install --no-cache-dir -U pip && \
 COPY src/ src/
 RUN mkdir /data
 RUN mkdir /config
+RUN mkdir /values
+RUN mkdir /media
 
 RUN useradd -m transcriber
 RUN chown -R transcriber /src
 RUN chown -R transcriber /data
 RUN chown -R transcriber /config
+RUN chown -R transcriber /values
+RUN chown -R transcriber /media
 
 USER transcriber
 
