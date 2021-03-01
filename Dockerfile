@@ -35,5 +35,5 @@ RUN useradd -m transcriber
 RUN chown -R transcriber /transcriber
 
 USER transcriber
-
-CMD [ "python", "/transcriber/src/main.py" ]
+WORKDIR /transcriber
+CMD [ "python", "transcriber/src/main.py" ]
