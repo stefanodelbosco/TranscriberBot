@@ -29,9 +29,9 @@ RUN mkdir /data
 RUN mkdir /config
 
 RUN useradd -m transcriber
-RUN chown -R docker /src
-RUN chown -R docker /data
-RUN chown -R docker /config
+RUN chown -R transcriber /src
+RUN chown -R transcriber /data
+RUN chown -R transcriber /config
 
 USER transcriber
 
