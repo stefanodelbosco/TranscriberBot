@@ -24,16 +24,12 @@ RUN pip install --no-cache-dir -U pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy code and define default command
-RUN mkdir /transcriber
-COPY src/ /transcriber/src/
-RUN mkdir /transcriber/data
-RUN mkdir /transcriber/config
-RUN mkdir /transcriber/values
-RUN mkdir /transcriber/media
+COPY src/ src/
 
 RUN useradd -m transcriber
-RUN chown -R transcriber /transcriber
+RUN chown -R transcriber src/
+RUN chown -R transcriber media/
 
 USER transcriber
-WORKDIR /transcriber
+
 CMD [ "python", "src/main.py" ]
