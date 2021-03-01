@@ -25,4 +25,14 @@ RUN pip install --no-cache-dir -U pip && \
 
 # Copy code and define default command
 COPY src/ src/
+RUN mkdir /data
+RUN mkdir /config
+
+RUN useradd -m transcriber
+RUN chown -R docker /src
+RUN chown -R docker /data
+RUN chown -R docker /config
+
+USER transcriber
+
 CMD [ "python", "src/main.py" ]
