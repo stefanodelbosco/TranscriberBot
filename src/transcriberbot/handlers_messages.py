@@ -13,6 +13,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 import audiotools
 import phototools
+import html
 import logging
 import traceback
 import time
@@ -310,7 +311,7 @@ def process_media_photo(bot, update, photo, chat):
     if chat["photos_enabled"] == 1:
       text = phototools.image_ocr(file_path, chat["lang"])
       if text is not None:
-        text = R.get_string_resource("ocr_result", chat["lang"]) + "\n" + text
+        text = R.get_string_resource("ocr_result", chat["lang"]) + "\n" + html.escape(text)
         bot.edit_message_text(
           text=text,
           chat_id=chat_id,
