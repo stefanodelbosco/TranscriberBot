@@ -15,6 +15,7 @@ RUN apt-get install --no-install-recommends -y \
                     libtesseract-dev \
                     libzbar-dev \
                     python3-dev \
+                    tesseract-ocr \
                     && \
     apt-get clean
 
